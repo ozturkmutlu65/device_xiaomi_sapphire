@@ -6,17 +6,19 @@ end="\033[0m"
 echo -e "${color}Applying patches${end}"
 sleep 1
 
-git clone https://github.com/Liekoo/packages_apps_FastCharge.git packages/apps/FastCharge
+git clone https://github.com/ozturkmutlu65/packages_apps_FastCharge.git packages/apps/FastCharge
 
 rm -rf device/xiaomi/sepolicy
 git clone -b 16 https://github.com/lycodump/device_xiaomi_sepolicy.git device/xiaomi/sepolicy
 
 rm -rf hardware/dolby
-git clone https://github.com/Evolution-X-Devices/hardware_dolby.git hardware/dolby
+git clone https://github.com/Pong-Development/hardware_dolby hardware/dolby
 
 rm -rf hardware/xiaomi
 git clone -b bka-no-dolby https://github.com/Evolution-X-Devices/hardware_xiaomi.git hardware/xiaomi
 rm -rf hardware/xiaomi/FastCharge
+
+git clone -b 16 https://github.com/ozturkmutlu65/vendor_xiaomi_GoogleCamera vendor/xiaomi/GoogleCamera
 
 echo "============================"
 echo "Cloning hals"
