@@ -435,6 +435,9 @@ $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,tr
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
+# MiuiCamera
+$(call inherit-product, device/xiaomi/miuicamera-sapphire/device.mk)
+
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
