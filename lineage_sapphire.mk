@@ -17,17 +17,6 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Include our private certificate
 -include vendor/lineage-priv/keys/keys.mk
 
-# Extra Stuffs
-TARGET_SUPPORTS_QUICK_TAP := true
-WITH_GMS := true
-TARGET_ENABLE_BLUR := true
-BUILD_BCR := false
-TARGET_INCLUDE_ACCORD := false
-EVO_BUILD_TYPE := Unofficial
-
-# AudioFX
-TARGET_EXCLUDES_AUDIOFX := true
-
 # Device configs
 TARGET_BOOT_ANIMATION_RES = 1080
 TARGET_HAS_UDFPS := true
