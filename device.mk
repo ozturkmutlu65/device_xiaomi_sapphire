@@ -582,6 +582,13 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi
 
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    privapp_whitelist_com.caf.fmradio.xml \
+    qcom.fmradio \
+    qcom.fmradio.xml
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
