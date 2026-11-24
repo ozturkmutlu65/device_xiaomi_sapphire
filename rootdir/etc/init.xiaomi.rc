@@ -3,6 +3,15 @@
 #     chmod 0664 /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
 #     chown system graphics /sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown
 
+# Boot the ADSP as soon as the vendor kernel modules are loaded instead of waiting
+# for early-boot. On this device init only reaches early-boot ~25 s into boot, the
+# ADSP then needs several more seconds, and the Qualcomm sensors HAL (sensors.ssc)
+# gives up after 8 s with "could not find sensors QMI service", leaving no sensors.
+# adsp_loader treats a second "boot" write as a no-op, so the stock early-boot
+# write in init.qti.kernel.rc can stay.
+on property:vendor.all.modules.ready=1
+    exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_adsp/boot 1
+
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/xiaomi-fp 0770 system system
